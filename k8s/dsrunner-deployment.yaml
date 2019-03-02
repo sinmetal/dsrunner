@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    name: dsrunner-dep
+  name: dsrunner-dep
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: dsrunner-dep
+    spec:
+      containers:
+        - image: gcr.io/$PROJECT_ID/sinmetal/dsrunner/master
+          name: dsrunner-dep
+          resources:
+            limits:
+              cpu: "2"
+            requests:
+              cpu: "1"
